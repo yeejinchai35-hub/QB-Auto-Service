@@ -1,0 +1,891 @@
+/* =========================================
+   User Dashboard - Standalone Styles
+   ========================================= */
+
+/* 1. Base Setup */
+body.profile-page {
+    /* Standalone colors (no CSS variables) */
+    background: #0f121a;
+    color: #ffffff;
+    font-family: 'Poppins', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+    color-scheme: dark;
+}
+
+.profile-page .text-muted,
+.profile-page .text-secondary { color: rgba(198, 206, 220, 0.78); }
+
+.profile-page .small,
+.profile-page small { color: rgba(255, 255, 255, 0.55); }
+
+/* 2. Hero */
+.profile-page .profile-hero {
+    /* CTA image first, then a subtle radial + dark gradient overlays */
+    background-image: url('../../images/home/cta.jpg'),
+                      radial-gradient(circle at top left, rgba(255, 106, 26, 0.18), transparent 55%),
+                      linear-gradient(135deg, rgba(19, 23, 34, 0.95), rgba(15, 18, 26, 0.92));
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: center center, top left, 0 0;
+    background-size: cover, auto, auto;
+    background-blend-mode: overlay, normal, normal;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* increased top padding to add space below header */
+    padding: 120px 0 56px;
+}
+
+.profile-page .profile-hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-page .profile-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-page .profile-title i {
+    font-size: 2.8rem;
+    color: #ff6a1a;
+    background: rgba(255, 106, 26, 0.18);
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 18px 40px -28px #ff6a1a;
+}
+
+.profile-page .profile-title h1 {
+    margin: 0;
+    font-size: clamp(2rem, 2.4vw + 1.2rem, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.profile-page .profile-subtitle {
+    margin: 0;
+    max-width: 720px;
+    color: rgba(198, 206, 220, 0.78);
+    font-size: 1rem;
+}
+
+@media (max-width: 575px) {
+    /* slightly larger mobile spacing as well */
+    .profile-page .profile-hero { padding: 80px 0 44px; }
+    .profile-page .profile-title i { font-size: 2.4rem; }
+}
+
+/* 3. Layout Grid */
+.profile-page .profile-grid { padding: 56px 0 96px; }
+
+@media (max-width: 575px) {
+    .profile-page .profile-grid { padding: 48px 0 72px; }
+}
+
+.profile-page .dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+@media (min-width: 992px) {
+    .profile-page .dashboard-layout { flex-direction: row; align-items: flex-start; }
+}
+
+.profile-page .dashboard-main { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 32px; 
+    width: 100%; 
+    min-width: 0; 
+}
+.profile-page .tab-panels { display: flex; flex-direction: column; gap: 32px; }
+
+/* 4. Sidebar */
+.profile-page .dashboard-sidebar {
+    width: 100%;
+    /* Use a solid, slightly lighter surface for a modern feel */
+    background: #202637;
+    border: 1px solid rgba(255, 255, 255, 0.14); /* Use a stronger border */
+    border-radius: 12px; /* Slightly smaller radius */
+    padding: 30px 26px;
+    /* Clean, subtle box-shadow */
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05); 
+    z-index: 10;
+}
+
+@media (min-width: 992px) {
+    .profile-page .dashboard-sidebar {
+        width: 300px;
+        flex-shrink: 0;
+        position: sticky;
+        top: 110px;
+        align-self: flex-start;
+    }
+}
+
+.profile-page .sidebar-card { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+
+.profile-page .sidebar-avatar {
+    width: 84px; /* compact square avatar */
+    height: 84px;
+    border-radius: 8px; /* make square with slight rounding */
+    background: transparent; /* let image show through */
+    display: inline-grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #0f1117;
+    overflow: hidden;
+    /* subtle outer glow + soft shadow to match design */
+    box-shadow: 0 8px 22px -8px rgba(0,0,0,0.6), 0 0 28px rgba(255,106,26,0.12);
+    border: 2px solid rgba(255,255,255,0.04); /* thin ring */
+}
+.profile-page .sidebar-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px; /* slightly inset rounding to match container */
+    box-shadow: 0 6px 18px -8px rgba(0,0,0,0.6), 0 4px 18px rgba(255,106,26,0.08) inset;
+}
+
+@media (max-width: 575px) {
+    .profile-page .sidebar-avatar { width: 64px; height: 64px; }
+}
+
+.profile-page .sidebar-name { margin: 0; font-size: 1.1rem; font-weight: 600; color: #ffffff; }
+.profile-page .sidebar-email,
+.profile-page .sidebar-meta { margin: 0; color: rgba(198, 206, 220, 0.78); font-size: 0.85rem; }
+
+.profile-page .sidebar-nav { display: flex; flex-direction: column; gap: 8px; }
+
+.profile-page .sidebar-label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 20px 0 6px;
+    font-weight: 600;
+}
+
+.profile-page .sidebar-link {
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.02);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease, border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+.profile-page .sidebar-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    pointer-events: none;
+    transition: border-color 0.2s ease;
+}
+.profile-page .sidebar-link i { color: #ff6a1a; font-size: 1.2rem; }
+.profile-page .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateX(4px);
+}
+.profile-page .sidebar-link:hover::after { border-color: rgba(255, 255, 255, 0.12); }
+/* --- Modified Active Link Style --- */
+.profile-page .sidebar-link.active {
+    background: transparent; /* Remove background fill */
+    color: #ff8342; /* Make text orange */
+    border-color: transparent;
+    /* Remove the box shadow inset, replace with a colored left border */
+    box-shadow: none;
+    border-left: 4px solid #ff6a1a; /* NEW: Strong left border */
+    padding-left: 14px; /* Adjust padding to make room for the border */
+    transform: none; /* Remove transform property for cleaner feel */
+}
+.profile-page .sidebar-link.active i { 
+    color: #ff6a1a; /* Make icon orange */
+}
+/* Ensure hover effect still looks good */
+.profile-page .sidebar-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: none; /* Remove horizontal shift on hover */
+}
+.profile-page .sidebar-link.active:hover {
+    /* Prevent border change on hover for active state */
+    border-color: transparent; 
+}
+
+/* 5. Main Content Area */
+.profile-page .tab-switcher {
+    display: none;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+@media (max-width: 991px) { .profile-page .tab-switcher { display: flex; } }
+
+.profile-page .tab-button {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(198, 206, 220, 0.78);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.profile-page .tab-button:hover { border-color: rgba(255, 255, 255, 0.28); color: #ffffff; }
+.profile-page .tab-button.active {
+    background: #ff6a1a;
+    color: #0f1117;
+    border-color: #ff6a1a;
+    box-shadow: 0 10px 24px -12px rgba(255, 106, 26, 0.6);
+}
+
+.profile-page .tab-panel { display: none; }
+.profile-page .tab-panel.active {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    align-content: start;
+}
+
+.profile-page .grid-span-full { grid-column: 1 / -1; }
+
+@media (min-width: 992px) {
+    .profile-page .tab-panel[data-tab-panel="profile"] {
+        /* Use a single column so the profile photo card drops beneath contact details */
+        grid-template-columns: minmax(0, 1fr);
+        align-items: start;
+    }
+}
+
+/* 6. Cards */
+.profile-page .card {
+    background: linear-gradient(160deg, #1a1f2c, #202637);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 36px 64px -40px rgba(15, 17, 23, 0.65);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%; /* Ensure equal height in row */
+}
+.profile-page .card::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+}
+.profile-page .card-body-form,
+.profile-page .card .list,
+.profile-page .profile-photo-wrapper { padding: 26px 28px 30px; }
+
+.profile-page .card-body-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profile-page .card-body-form .row {
+    --bs-gutter-y: 1.5rem;
+}
+
+.profile-page .card-body-form > .form-actions {
+    margin-top: auto;
+}
+
+.profile-page .card .list { flex: 1; }
+
+.profile-page .card-header {
+    padding: 22px 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.profile-page .card-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    font-weight: 600;
+}
+.profile-page .card-header p { margin: 4px 0 0; color: rgba(198, 206, 220, 0.78); font-size: 0.88rem; }
+
+.profile-page .section-actions { display: flex; gap: 12px; align-items: center; }
+
+/* 7. Lists (Appointments & Vehicles) */
+.profile-page .list {
+    padding: 26px 28px 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+}
+
+.profile-page .list-item,
+.profile-page .vehicle-item {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 22px;
+    background: #202637;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: start;
+    box-shadow: 0 16px 34px -28px rgba(15, 17, 23, 0.65);
+}
+
+.profile-page .list-item.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.profile-page .list-item .info,
+.profile-page .vehicle-item .vehicle-summary > div { min-width: 0; }
+
+.profile-page .list-item .actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+    .profile-page .list-item,
+    .profile-page .vehicle-item {
+        grid-template-columns: minmax(0, 1fr);
+        align-items: flex-start;
+        padding: 18px;
+    }
+    .profile-page .list-item .actions { justify-content: flex-start; }
+}
+
+.profile-page .list-item .title,
+.profile-page .vehicle-item .title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+.profile-page .list-item .sub,
+.profile-page .vehicle-item .sub { color: rgba(198, 206, 220, 0.78); font-size: 0.9rem; }
+
+.profile-page .empty {
+    text-align: center;
+    color: rgba(198, 206, 220, 0.78);
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    padding: 34px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Badges (status pills) */
+.profile-page .badge {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    padding: 0.35rem 0.9rem;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-page .badge.bg-primary { background: #3f8cff; border-color: rgba(255, 255, 255, 0.1); }
+.profile-page .badge.bg-secondary { background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.7); }
+.profile-page .badge.bg-warning { background: #ffb547; color: #1b1f2a; }
+.profile-page .badge.bg-success { background: #1dd1a1; color: #0f1117; }
+.profile-page .badge.bg-danger { background: #ff6b6b; }
+.profile-page .badge.bg-light { background: rgba(255, 255, 255, 0.22); color: #111319; }
+
+/* 8. Vehicle Specifics */
+.profile-page .vehicle-list { display: flex; flex-direction: column; gap: 18px; padding: 0 28px 32px; }
+
+.profile-page .vehicle-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.profile-page .vehicle-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.profile-page .vehicle-edit-form {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    grid-column: 1 / -1;
+    width: 100%;
+}
+.profile-page .vehicle-item.editing .vehicle-summary { display: none; }
+.profile-page .vehicle-item.editing .vehicle-edit-form { display: block; }
+
+/* Collapsible "Add Vehicle" Panel */
+.profile-page .panel-collapsible {
+    margin: 22px 28px;
+    padding: 24px;
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    display: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+.profile-page .panel-collapsible.active { display: block; }
+
+/* 9. Forms & Inputs */
+.profile-page .form-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(198, 206, 220, 0.78);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* Find this block and adjust the background-color */
+.profile-page .form-control,
+.profile-page .form-select {
+    /* background-color: #131722; <--- Original */
+    background-color: #0f121a; /* Use a darker color for contrast */
+    color: #ffffff; /* Ensure text is visible */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.65rem 1rem;
+    height: auto;
+    border-radius: 4px; /* Match button corner style */
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.profile-page .form-control:focus,
+.profile-page .form-select:focus {
+    border-color: #ff6a1a;
+    box-shadow: 0 0 0 2px rgba(255, 106, 26, 0.18);
+    background-color: #202637;
+    color: #ffffff;
+}
+.profile-page .form-control::placeholder { color: rgba(255, 255, 255, 0.3); opacity: 1; }
+
+.profile-page .form-control:disabled,
+.profile-page .form-select:disabled {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.35);
+    cursor: not-allowed;
+}
+
+.profile-page .modal-content .form-control,
+.profile-page .modal-content .form-select {
+    color: #ffffff;
+}
+
+.profile-page .modal-content .form-control:disabled,
+.profile-page .modal-content .form-select:disabled {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.profile-page .modal-content .form-select {
+    background-color: #131722;
+}
+
+.profile-page .modal-content .form-select option {
+    color: #f5f7ff;
+    background-color: #1a1f2c;
+}
+
+.profile-page .form-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.profile-page .form-actions { justify-content: flex-end; }
+
+/* Find this block and modify properties */
+.profile-page .dashboard-layout .btn,
+.profile-page .modal-content .btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    transition: all 0.16s ease;
+    font-size: 0.92rem; /* consistent base size for dashboard buttons */
+    line-height: 1;
+    padding: 8px 14px; /* reduce bulk for most buttons */
+}
+
+/* Find this block and modify the hover effect */
+.profile-page .dashboard-layout .btn-main:hover,
+.profile-page .modal-content .btn-main:hover {
+    background: #ff8342;
+    border-color: #ff8342;
+    color: #000;
+    /* box-shadow: 0 16px 28px -18px rgba(255, 106, 26, 0.65); <--- Original */
+    box-shadow: 0 4px 12px -6px rgba(255, 106, 26, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.1); /* New shadow for a 'pop' */
+    transform: translateY(-1px);
+}
+
+.profile-page .dashboard-layout .btn:disabled,
+.profile-page .modal-content .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.profile-page .dashboard-layout .btn-main,
+.profile-page .modal-content .btn-main {
+    background: #ff6a1a;
+    border: 1px solid #ff6a1a;
+    color: #0f1117;
+    font-weight: 700;
+    padding: 8px 16px; /* slightly larger than base but not oversized */
+    display: inline-block;
+    text-align: center;
+}
+/* Smaller variant when used with .btn-sm to avoid oversized action buttons */
+.profile-page .btn-main.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+.profile-page .dashboard-layout .btn-main:hover,
+.profile-page .modal-content .btn-main:hover {
+    background: #ff8342;
+    border-color: #ff8342;
+    color: #000;
+    box-shadow: 0 16px 28px -18px rgba(255, 106, 26, 0.65);
+    transform: translateY(-1px);
+}
+
+.profile-page .dashboard-layout .btn-outline,
+.profile-page .modal-content .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px 14px;
+    display: inline-block;
+    text-align: center;
+}
+.profile-page .dashboard-layout .btn-outline:hover,
+.profile-page .modal-content .btn-outline:hover {
+    border-color: #ff6a1a;
+    color: #ff6a1a;
+}
+
+.profile-page .dashboard-layout .btn-outline-danger,
+.profile-page .modal-content .btn-outline-danger {
+    background: transparent;
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    font-weight: 600;
+    padding: 10px 20px;
+}
+.profile-page .dashboard-layout .btn-outline-danger:hover,
+.profile-page .modal-content .btn-outline-danger:hover {
+    background: #ff6b6b;
+    color: #ffffff;
+    box-shadow: 0 12px 20px -16px rgba(255, 107, 107, 0.6);
+}
+
+.profile-page .dashboard-layout .btn-danger,
+.profile-page .modal-content .btn-danger {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    font-weight: 700;
+}
+.profile-page .dashboard-layout .btn-danger:hover,
+.profile-page .modal-content .btn-danger:hover {
+    background: #ff7d7d;
+    border-color: #ff7d7d;
+    box-shadow: 0 16px 28px -18px rgba(255, 107, 107, 0.65);
+}
+
+/* ------------------------------------------------------------------
+   Scoped styles for the Delete Account area to match the design.
+   Ensures the input and delete button share height, padding, and
+   the button uses a rounded pill appearance with coral color.
+------------------------------------------------------------------ */
+.profile-page .card#account-actions .row.g-3 { align-items: center; }
+.profile-page .card#account-actions input#delete_confirm.form-control {
+    height: 46px;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    background-color: #0d1116; /* slightly darker than page */
+    border: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.9);
+}
+.profile-page .card#account-actions .form-actions {
+    justify-content: flex-end; /* keep button to the right like mock */
+    align-items: center;
+    gap: 12px;
+}
+.profile-page .card#account-actions .form-actions .btn {
+    height: 46px;
+    padding: 0 22px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+}
+.profile-page .card#account-actions .form-actions .btn.btn-danger {
+    background: #ff6b6b;
+    border-color: #ff6b6b;
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(255,107,107,0.12);
+}
+@media (max-width: 767px) {
+    .profile-page .card#account-actions .row.g-3 { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+    .profile-page .card#account-actions input#delete_confirm.form-control,
+    .profile-page .card#account-actions .form-actions .btn { height: 44px; width: 100%; }
+}
+
+.profile-page .dashboard-layout .btn-sm,
+.profile-page .modal-content .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+
+/* 11. Profile Photo & Security */
+/* REMOVED: modal-service-row styles as they are now handled by Bootstrap grid in JS */
+
+.profile-page .profile-photo-wrapper {
+    flex: 1;
+    padding: 26px 28px 30px;
+    /* CHANGE: Enforce two columns on large screens */
+    display: grid; 
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 24px;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .profile-page .profile-photo-wrapper {
+        /* Set to 1 column on tablet/medium screens */
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (min-width: 992px) {
+    .profile-page .profile-photo-wrapper {
+        /* Set to 2 columns on desktop/large screens */
+        grid-template-columns: minmax(220px, 1fr) minmax(0, 1fr); 
+    }
+}
+
+/* Ensure the upload form aligns with the preview on the right (2nd column) */
+.profile-page .profile-photo-wrapper .photo-form {
+    align-items: stretch; /* Stretch the form controls */
+    max-width: none; /* Remove max-width constraint */
+    margin: 0; /* Remove auto-margin */
+    display: flex; /* Allow flex children to fill space */
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Fix the actions to be centered */
+.profile-page .profile-photo-wrapper .photo-form .form-actions {
+    /* CHANGE: Align left, as it's the 2nd column now */
+    justify-content: flex-start; 
+    margin-top: 0;
+}
+
+.profile-page .profile-photo-preview {
+    min-height: 200px;
+    border-radius: 12px; /* rounded square container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* remove white box background */
+    border: none; /* remove visible white border */
+    /* Add a subtle, soft outer shadow to lift the preview */
+    box-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.7), 0 6px 18px rgba(0,0,0,0.35);
+    padding: 0; /* eliminate inner white frame */
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    /* Keep the preview in the first column */
+    grid-column: 1 / -1; 
+}
+
+@media (min-width: 992px) {
+    .profile-page .profile-photo-preview {
+        /* Span only the first column on desktop */
+        grid-column: 1 / 2;
+        max-width: 320px; /* Limit max width for the preview itself */
+        width: 320px;
+        height: 320px;
+    }
+    
+    .profile-page .profile-photo-wrapper .photo-form {
+        /* Put the form in the second column */
+        grid-column: 2 / -1;
+        
+        /* The upload button and remove button should stack vertically in the second column */
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 260px; /* NEW: Limit the max width of the upload form */
+    }
+    
+    .profile-page .profile-photo-wrapper .photo-form > .form-actions {
+        /* Put the form actions at the bottom of the second column */
+        margin-top: auto; 
+    }
+    
+    /* NEW BLOCK: Target the Remove Photo form */
+    .profile-page .profile-photo-wrapper > form:last-of-type {
+        grid-column: 2 / -1; /* Place in the second column on desktop */
+        max-width: 260px; /* Limit the width of the remove button's form */
+        margin-top: 0; /* Reset margin top */
+    }
+}
+
+
+.profile-page .profile-photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px; /* match the framed square look */
+    border: none;
+    box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Small screens: slightly smaller circular preview */
+@media (max-width: 991px) {
+    .profile-page .profile-photo-preview {
+        width: 180px;
+        height: 180px;
+        min-height: 180px;
+        max-width: 220px;
+        margin-inline: auto;
+    }
+}
+
+/* Photo input controls (right column) */
+.profile-page .visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+.profile-page .photo-input-controls { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.profile-page .file-chooser { display: flex; gap: 12px; align-items: center; width: 100%; }
+.profile-page .choose-file-btn { background: transparent; border: 1px solid rgba(255,255,255,0.18); color: #fff; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight:700; }
+.profile-page .choose-file-btn:hover { border-color: #ff6a1a; color: #ff6a1a; }
+.profile-page .file-name { color: rgba(255,255,255,0.7); font-size: 0.95rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 220px; }
+.profile-page .photo-input-controls .form-actions { padding: 0; margin-top: 6px; }
+.profile-page .remove-photo-btn { width: 100%; }
+
+@media (min-width: 992px) {
+    .profile-page .photo-input-controls { align-items: stretch; }
+    .profile-page .remove-photo-form { margin-top: 6px; }
+}
+
+.profile-page .password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1.2rem;
+}
+.profile-page .password-toggle:hover { color: #ff6a1a; }
+
+/* 12. Alerts */
+.profile-page .flash-message {
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-page .alert-success { background: rgba(29, 209, 161, 0.15); border: 1px solid rgba(29, 209, 161, 0.38); color: #7bed9f; }
+.profile-page .alert-danger { background: rgba(255, 107, 107, 0.16); border: 1px solid rgba(255, 107, 107, 0.38); color: #ff8b8b; }
+.profile-page .btn-close { filter: invert(1); }
+
+/* 13. Modal (Dark Theme Overrides) */
+.profile-page .modal-content {
+    background-color: #1a1f2c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+}
+.profile-page .modal-header,
+.profile-page .modal-footer { border-color: rgba(255, 255, 255, 0.08); }
+.profile-page .modal-title { color: #ffffff; font-weight: 600; }
+.profile-page .btn-close { filter: invert(1) grayscale(100%) brightness(200%); opacity: 0.8; }
+
+/* Modal service row: compact, responsive layout for service select + remove button */
+.profile-page .modal-service-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.profile-page .modal-service-row .form-select,
+.profile-page .modal-service-row select { flex: 1; min-width: 0; }
+.profile-page .modal-service-row .btn { white-space: nowrap; padding: 6px 12px; border-radius: 6px; }
+@media (max-width: 575px) {
+    .profile-page .modal-service-row { flex-direction: column; align-items: stretch; }
+    .profile-page .modal-service-row .btn { width: 100%; }
+}
+
+/* Fix Autofill Backgrounds */
+.profile-page input:-webkit-autofill,
+.profile-page input:-webkit-autofill:hover,
+.profile-page input:-webkit-autofill:focus,
+.profile-page input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #131722 inset;
+    -webkit-text-fill-color: white;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Hide the action buttons by default */
+.profile-page .contact-actions.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   New Button Styles (Fix for Edit/Cancel Layout)
+   ========================================= */
+
+.profile-page .btn-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px; /* Ensures square shape when text is hidden on mobile */
+    padding: 6px 12px;
+}
+
+.profile-page .btn-action i {
+    font-size: 1.15rem; /* Make icon slightly larger */
+    line-height: 1;
+}
+
+/* Optional: Make the reschedule button stand out slightly more on hover */
+.profile-page .btn-action.btn-outline:hover {
+    border-color: #ff6a1a;
+    background-color: #ff6a1a;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(255, 106, 26, 0.3);
+}

@@ -1,0 +1,68 @@
+/* ================================
+   FOOTER STYLES - Dark theme match
+   ================================ */
+.site-footer.qb-footer {
+    background: linear-gradient(180deg, rgba(26,26,26,1) 0%, rgba(20,20,20,1) 100%);
+    color: var(--text-color, #f1f1f1);
+    padding: 44px 0 22px 0;
+    position: relative;
+}
+.site-footer.qb-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,87,34,0.9), rgba(255,87,34,0.35));
+}
+
+/* Logo */
+.site-footer .footer-logo {
+    height: 42px;
+    width: auto;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.06);
+}
+.site-footer .brand-text { color: var(--text-color, #f1f1f1); }
+
+/* Headings */
+.site-footer h6 {
+    color: var(--text-color, #f1f1f1);
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    letter-spacing: .4px;
+}
+
+/* Text and lists */
+.site-footer p,
+.site-footer ul li {
+    font-size: .95rem;
+    margin-bottom: 6px;
+    color: rgba(241,241,241,0.85);
+}
+.site-footer ul { padding-left: 0; }
+.site-footer ul li a {
+    color: rgba(241,241,241,0.85);
+    transition: color .25s ease;
+}
+.site-footer ul li a:hover { color: var(--main-color, #ff5722); }
+
+/* Icons */
+.site-footer .col-lg-3 p { color: rgba(241,241,241,0.85); }
+.site-footer .col-lg-3 p i {
+    color: var(--main-color, #ff5722);
+    margin-right: 8px;
+}
+
+/* Bottom separator */
+.footer-sep {
+    border: none;
+    height: 1px;
+    margin: 14px 0 10px;
+    background: rgba(255,255,255,0.08);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .site-footer.qb-footer { padding: 36px 0 18px 0; }
+    .site-footer .footer-logo { height: 36px; }
+}

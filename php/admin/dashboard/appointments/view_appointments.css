@@ -1,0 +1,46 @@
+@import url('../admin_dashboard.css');
+
+/* Page-specific layout controls */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-bar input,
+.filter-bar select {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.services-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display: block;
+}
+
+.pagination {
+    display: flex;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-main);
+}
+
+.pagination a.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}

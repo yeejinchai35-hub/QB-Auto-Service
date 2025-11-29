@@ -1,0 +1,156 @@
+/* =========================================
+   Auth Modal - Dark Theme Override
+   ========================================= */
+
+/* 1. Variables for easy color changing */
+:root {
+    --auth-bg-overlay: rgba(0, 0, 0, 0.85);
+    --auth-panel-bg: #1a1a1a;       /* Dark Grey Background */
+    --auth-text-main: #ffffff;      /* White Text */
+    --auth-text-muted: #cccccc;     /* Grey Text */
+    --auth-accent: #ff6b2c;         /* Orange Brand Color */
+    --auth-input-bg: #222222;       /* Input Field Background */
+    --auth-border: rgba(255, 255, 255, 0.1);
+}
+
+/* 2. Main Modal Wrapper */
+/* We use the ID #authModal to override Bootstrap */
+#authModal.modal {
+    display: none; /* Hidden by default, JS toggles this */
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    background-color: var(--auth-bg-overlay);
+    backdrop-filter: blur(5px); /* Modern blur effect */
+    
+    /* Center the content */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. The Modal Box (The part that was white) */
+#authModal .modal-content {
+    /* !important forces this dark color over Bootstrap's white */
+    background-color: var(--auth-panel-bg) !important; 
+    color: var(--auth-text-main) !important;
+    
+    border: 1px solid var(--auth-border);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    margin: auto; /* Helps centering */
+}
+
+/* 4. Typography */
+#authModal h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: var(--auth-text-main);
+}
+
+#authModal label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--auth-text-muted);
+}
+
+/* 5. Inputs (Text Boxes) */
+#authModal input[type="text"],
+#authModal input[type="email"],
+#authModal input[type="password"],
+#authModal input[type="tel"],
+#authModal select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    
+    /* Force dark input style */
+    background-color: var(--auth-input-bg) !important;
+    border: 1px solid var(--auth-border) !important;
+    color: #fff !important;
+    
+    outline: none;
+    font-size: 1rem;
+}
+
+#authModal input:focus {
+    border-color: var(--auth-accent) !important;
+    box-shadow: 0 0 0 2px rgba(255, 107, 44, 0.2);
+}
+
+/* 6. Buttons */
+#authModal .auth-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    transition: transform 0.2s;
+    
+    /* Orange Gradient */
+    background: linear-gradient(135deg, var(--auth-accent), #e65100);
+    color: white;
+}
+
+#authModal .auth-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ff814d, #ef6c00);
+}
+
+/* 7. Links and Footer Text */
+#authModal .auth-meta {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--auth-text-muted);
+}
+
+#authModal .auth-link {
+    color: var(--auth-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#authModal .auth-link:hover {
+    text-decoration: underline;
+}
+
+/* 8. The Close 'X' Button */
+#authModal .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--auth-text-muted);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#authModal .close:hover {
+    color: var(--auth-accent);
+}
+
+/* 9. Toggle Row (Show Password) */
+#authModal .pw-toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+#authModal .pw-toggle-row input {
+    width: auto !important; /* Prevent checkbox from stretching */
+    margin: 0;
+}

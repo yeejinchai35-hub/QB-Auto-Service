@@ -1,0 +1,420 @@
+/* ================================
+   CONTACT PAGE STYLES
+   ================================ */
+
+/* --- Base Page Configuration --- */
+body.contact-page {
+    background: #1a1a1a;
+    color: #f1f1f1;
+    font-family: 'Poppins', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   MAIN SECTION & LAYOUT
+   ================================ */
+body.contact-page .contact-section1 {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 20px 60px 20px;
+    padding-bottom: 100px;
+    color: #f1f1f1;
+}
+
+/* Top gradient glow effect */
+body.contact-page .contact-section1::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 200px;
+    background: radial-gradient(ellipse at top, rgba(255, 87, 34, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+body.contact-page .contact-container {
+    max-width: 1400px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr; /* Map is slightly wider */
+    gap: 50px;
+    align-items: start;
+    position: relative;
+}
+
+/* ================================
+   TYPOGRAPHY & HEADINGS
+   ================================ */
+body.contact-page .contact-section1 .heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+body.contact-page .contact-section1 .heading span {
+    color: #ff5722;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+body.contact-page .contact-section1 .heading h2 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.05em;
+}
+
+body.contact-page .contact-section1 .heading p {
+    color: #999;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+/* ================================
+   BUTTON COMPONENTS
+   ================================ */
+body.contact-page .contact-section1 .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s, background 0.3s;
+    border: 2px solid transparent;
+}
+
+/* Main Button (Orange) */
+body.contact-page .contact-section1 .btn-main {
+    background: #ff5722;
+    color: #1a1a1a;
+    border-color: #ff5722;
+}
+
+body.contact-page .contact-section1 .btn-main:hover {
+    background: #e04a1f;
+    border-color: #e04a1f;
+}
+
+/* Outline Button */
+body.contact-page .contact-section1 .btn-outline {
+    background: transparent;
+    color: #f1f1f1;
+    border-color: #f1f1f1;
+}
+
+body.contact-page .contact-section1 .btn-outline:hover {
+    background: #ff5722;
+    border-color: #ff5722;
+    color: #1a1a1a;
+}
+
+/* ================================
+   MAP COMPONENT (Left Column)
+   ================================ */
+body.contact-page .contact-map-wrapper {
+    position: relative;
+    height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+body.contact-page .map-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid rgba(255, 87, 34, 0.3);
+}
+
+/* Inner shadow for map depth */
+body.contact-page .map-frame::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 20px;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* Floating Badge on Map */
+body.contact-page .map-overlay-badge {
+    position: absolute;
+    top: 30px; left: 30px;
+    background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
+    z-index: 2;
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+body.contact-page .map-overlay-badge i {
+    font-size: 1.5rem;
+    color: white;
+    animation: bounce-pin 1.5s ease-in-out infinite;
+}
+
+body.contact-page .map-overlay-badge span {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* ================================
+   INFO CARDS (Right Column)
+   ================================ */
+body.contact-page .contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* General Card Style */
+body.contact-page .contact-info-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Orange sidebar on hover */
+body.contact-page .contact-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, #ff5722 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+body.contact-page .contact-info-card:hover {
+    transform: translateX(10px);
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 87, 34, 0.05) 100%);
+    border-color: rgba(255, 87, 34, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 87, 34, 0.2);
+}
+
+body.contact-page .contact-info-card:hover::before { opacity: 1; }
+
+/* Card Icon Box */
+body.contact-page .card-icon {
+    width: 60px; height: 60px; min-width: 60px;
+    background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(255, 87, 34, 0.3);
+}
+
+body.contact-page .card-icon i { font-size: 1.8rem; color: white; }
+
+/* Card Content Text */
+body.contact-page .card-content { flex: 1; }
+
+body.contact-page .card-content h3 {
+    font-size: 1.3rem;
+    color: #f1f1f1;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+body.contact-page .card-content p {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Link inside cards */
+body.contact-page .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ff5722;
+    font-weight: 500;
+    margin-top: 15px;
+    text-decoration: none;
+    transition: gap 0.3s ease;
+}
+
+body.contact-page .card-link:hover { gap: 12px; }
+
+body.contact-page .card-link i { transition: transform 0.3s ease; }
+body.contact-page .card-link:hover i { transform: translateX(3px); }
+
+/* --- Specific Card: Phone Numbers --- */
+body.contact-page .phone-number { margin: 8px 0; }
+
+body.contact-page .phone-number a {
+    color: #ff5722;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+body.contact-page .phone-number a:hover { color: #ff7043; }
+
+body.contact-page .phone-number .role {
+    color: #777;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+/* --- Specific Card: Business Hours --- */
+body.contact-page .hours-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+body.contact-page .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border-left: 3px solid #ff5722;
+}
+
+body.contact-page .hours-row.closed {
+    border-left-color: #555;
+    opacity: 0.6;
+}
+
+body.contact-page .hours-row .day {
+    color: #ccc;
+    font-weight: 500;
+}
+
+body.contact-page .hours-row .time {
+    color: #ff5722;
+    font-weight: 600;
+}
+
+body.contact-page .hours-row.closed .time { color: #777; }
+
+/* ================================
+   CTA CARD (Orange Bottom Card)
+   ================================ */
+body.contact-page .contact-cta-card {
+    background: linear-gradient(135deg, #ff5722 0%, #ff7043 100%);
+    border-radius: 16px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(255, 87, 34, 0.3);
+    border: none;
+}
+
+body.contact-page .contact-cta-card h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+body.contact-page .contact-cta-card p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 25px;
+}
+
+/* Buttons specific to this orange card */
+body.contact-page .contact-section1 .cta-buttons-contact {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+body.contact-page .contact-section1 .cta-buttons-contact .btn-main {
+    background: white;
+    color: #ff5722;
+    border-color: white;
+}
+
+body.contact-page .contact-section1 .cta-buttons-contact .btn-main:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+body.contact-page .contact-section1 .cta-buttons-contact .btn-outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+body.contact-page .contact-section1 .cta-buttons-contact .btn-outline:hover {
+    background: white;
+    color: #ff5722;
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 87, 34, 0.6); }
+}
+
+@keyframes bounce-pin {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+@media (max-width: 968px) {
+    body.contact-page .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    body.contact-page .contact-map-wrapper {
+        height: 450px;
+        order: 2; /* Move map below info on tablets */
+    }
+    
+    body.contact-page .contact-info-wrapper { order: 1; }
+    
+    body.contact-page .contact-info-card { padding: 25px; }
+    
+    body.contact-page .contact-info-card:hover { transform: translateY(-5px); }
+    
+    body.contact-page .map-overlay-badge {
+        top: 20px;
+        left: 20px;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.contact-page .contact-info-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    body.contact-page .card-icon { margin: 0 auto; }
+    
+    body.contact-page .hours-row {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    body.contact-page .cta-buttons-contact { flex-direction: column; }
+    
+    body.contact-page .cta-buttons-contact .btn { width: 100%; }
+}

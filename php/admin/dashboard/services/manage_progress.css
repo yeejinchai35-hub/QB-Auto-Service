@@ -1,0 +1,39 @@
+/* Manage Progress - Custom Styles */
+
+/* Progress Stage Dropdown */
+.progress-select {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.progress-select:focus {
+    border-color: #f97316; /* Primary Orange */
+}
+
+/* Update Button */
+.btn-update {
+    background: #f97316;
+    color: #fff;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.btn-update:hover {
+    background: #ea580c;
+}
+
+.btn-update:active {
+    transform: translateY(1px);
+}

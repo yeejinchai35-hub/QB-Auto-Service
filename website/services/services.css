@@ -1,0 +1,463 @@
+/* ================================
+   MODERN SERVICES PAGE STYLES
+   ================================ */
+
+/* --- Base Page Styles --- */
+body.services-page {
+    background: #1a1a1a;
+    color: #f1f1f1;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* --- Reusable Components (Buttons & Badges) --- */
+body.services-page .services-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .25s ease, color .25s ease, transform .2s ease;
+}
+
+body.services-page .services-btn:focus-visible {
+    outline: 2px solid rgba(255, 87, 34, 0.5);
+    outline-offset: 3px;
+}
+
+body.services-page .services-btn-primary {
+    background: #ff5722;
+    color: #1a1a1a;
+    border-color: #ff5722;
+    box-shadow: 0 12px 24px rgba(255, 87, 34, 0.25);
+}
+
+body.services-page .services-btn-primary:hover {
+    background: #e04a1f;
+    border-color: #e04a1f;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+body.services-page .hero-badge,
+body.services-page .brands-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 87, 34, 0.1);
+    border: 1px solid rgba(255, 87, 34, 0.3);
+    border-radius: 50px;
+    color: #ff5722;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+body.services-page .services-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    padding: 120px 0 60px;
+    overflow: hidden;
+}
+
+body.services-page .services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 87, 34, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 87, 34, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+body.services-page .services-hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.5;
+}
+
+body.services-page .services-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body.services-page .services-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #f1f1f1;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+body.services-page .services-hero p {
+    font-size: 18px;
+    color: #a0a0a0;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+body.services-page .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Ensure equal box height */
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+body.services-page .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    flex: 1 1 180px; 
+    min-width: 180px;
+}
+
+body.services-page .stat-item i {
+    font-size: 32px;
+    color: #ff5722;
+}
+
+body.services-page .stat-item strong {
+    display: block;
+    font-size: 20px;
+    color: #f1f1f1;
+    font-weight: 700;
+}
+
+body.services-page .stat-item span {
+    display: block;
+    font-size: 13px;
+    color: #808080;
+}
+
+/* ================================
+   MAIN SERVICE SECTIONS
+   ================================ */
+body.services-page .modern-section, 
+body.services-page .service-section {
+    padding: 80px 0;
+    background: #1a1a1a;
+}
+
+body.services-page .modern-section.alt-bg, 
+body.services-page .service-section.alt-bg {
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+}
+
+/* --- Section Headers --- */
+body.services-page .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 50px;
+    max-width: 800px;
+}
+
+body.services-page .section-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff5722 0%, #d84315 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(255, 87, 34, 0.3);
+}
+
+body.services-page .section-icon i {
+    font-size: 36px;
+    color: white;
+}
+
+body.services-page .section-text { flex: 1; }
+
+body.services-page .section-text .section-title {
+    text-align: left;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+body.services-page .section-text .section-sub {
+    text-align: left;
+    font-size: 16px;
+    color: #a0a0a0;
+    margin: 0;
+}
+
+/* --- Service Grid Layout --- */
+body.services-page .modern-grid, 
+body.services-page .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    grid-auto-rows: 1fr; /* Ensure consistent height */
+}
+
+/* ================================
+   MODERN CARD STYLES (Matching Image_0.png)
+   ================================ */
+body.services-page .modern-card, 
+body.services-page .service-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+body.services-page .modern-card:hover, 
+body.services-page .service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 87, 34, 0.3);
+    box-shadow: 0 12px 40px rgba(255, 87, 34, 0.2);
+}
+
+/* --- Card Image & Interaction --- */
+body.services-page .card-image { 
+    position: relative; 
+    height: 200px; 
+    overflow: hidden; 
+}
+
+body.services-page .card-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: transform 0.4s ease; 
+}
+
+body.services-page .modern-card:hover .card-image img { 
+    transform: scale(1.1); 
+}
+
+/* --- Card Overlay (Specific styles from image_0.png) --- */
+body.services-page .card-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    /* Dark gradient overlay */
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+    display: flex; 
+    /* Align icon to bottom right */
+    align-items: flex-end; 
+    justify-content: flex-end;
+    padding: 20px; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+body.services-page .modern-card:hover .card-overlay { 
+    opacity: 1; 
+}
+
+body.services-page .card-overlay i { 
+    font-size: 48px; 
+    color: rgba(255, 87, 34, 0.8); 
+}
+
+/* --- Card Content & Typography (Specific styles from image_0.png) --- */
+body.services-page .card-content { 
+    padding: 24px; 
+    flex: 1; /* Force stretch */
+    display: flex; 
+    flex-direction: column; 
+}
+
+body.services-page .card-content h3 { 
+    font-size: 20px; 
+    font-weight: 600; 
+    color: #f1f1f1; 
+    margin: 0 0 12px 0; 
+}
+
+body.services-page .card-content p { 
+    font-size: 14px; 
+    color: #a0a0a0; 
+    line-height: 1.6; 
+    margin: 0 0 16px 0; 
+    flex: 1; /* Pushes link to bottom */
+}
+
+/* --- Card Link --- */
+body.services-page .card-link { 
+    margin-top: auto; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    color: #ff5722; 
+    font-weight: 600; 
+    font-size: 14px; 
+    text-decoration: none; 
+    transition: gap 0.3s ease; 
+}
+
+body.services-page .card-link:hover { 
+    gap: 12px; 
+}
+
+body.services-page .card-link i { 
+    font-size: 18px; 
+}
+
+/* --- Featured Card Badges --- */
+body.services-page .featured-card { 
+    border-color: rgba(255, 87, 34, 0.2); 
+}
+
+body.services-page .featured-badge {
+    position: absolute; top: 16px; right: 16px;
+    background: #ff5722; color: white; padding: 6px 14px; border-radius: 20px;
+    font-size: 11px; font-weight: 700; letter-spacing: 1px; z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.4);
+}
+
+/* ================================
+   BRANDS SECTION Styles
+   ================================ */
+body.services-page .brands-section { 
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%); 
+    padding: 80px 0; 
+}
+
+body.services-page .brands-header { 
+    text-align: center; 
+    margin-bottom: 60px; 
+}
+
+body.services-page .brands-text .section-title { font-size: 36px; margin-bottom: 16px; }
+body.services-page .brands-text .section-sub { font-size: 16px; color: #a0a0a0; }
+
+body.services-page .brands-showcase { display: flex; flex-direction: column; gap: 50px; }
+
+body.services-page .brands-category { 
+    background: rgba(255, 255, 255, 0.02); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 20px; padding: 40px; 
+}
+
+body.services-page .brands-category h3 { 
+    display: flex; align-items: center; gap: 12px; 
+    font-size: 22px; color: #f1f1f1; 
+    margin: 0 0 30px 0; padding-bottom: 20px; 
+    border-bottom: 2px solid rgba(255, 87, 34, 0.2); 
+}
+
+body.services-page .brands-category h3 i { font-size: 28px; color: #ff5722; }
+
+/* --- Brands Grid --- */
+body.services-page .modern-brand-grid, 
+body.services-page .brand-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    gap: 20px; 
+}
+
+body.services-page .brand-card { 
+    display: block; 
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 12px; padding: 20px; 
+    transition: all 0.3s ease; 
+    text-decoration: none; 
+}
+
+body.services-page .brand-card:hover { 
+    transform: translateY(-5px); 
+    border-color: rgba(255, 87, 34, 0.4); 
+    background: rgba(255, 255, 255, 0.05); 
+    box-shadow: 0 8px 24px rgba(255, 87, 34, 0.2); 
+}
+
+body.services-page .brand-image-wrapper { 
+    display: flex; align-items: center; justify-content: center; 
+    height: 80px; 
+}
+
+body.services-page .brand-image-wrapper img { 
+    max-width: 100%; max-height: 100%; 
+    object-fit: contain; filter: none; 
+    transition: filter 0.3s ease; 
+}
+
+body.services-page .brand-card:hover .brand-image-wrapper img { filter: none; }
+
+/* --- Brands CTA --- */
+body.services-page .brands-cta { 
+    margin-top: 60px; text-align: center; padding: 50px; 
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.1) 0%, rgba(255, 87, 34, 0.05) 100%); 
+    border: 2px solid rgba(255, 87, 34, 0.2); 
+    border-radius: 20px; 
+}
+
+body.services-page .cta-content h3 { font-size: 28px; color: #f1f1f1; margin: 0 0 12px 0; }
+body.services-page .cta-content p { font-size: 16px; color: #a0a0a0; margin: 0 0 24px 0; }
+
+/* ================================
+   RESPONSIVE DESIGN TWEAKS
+   ================================ */
+
+/* Large Screens */
+@media (min-width: 1400px) {
+    body.services-page .modern-grid, body.services-page .services-grid { 
+        gap: 36px; 
+    }
+}
+
+/* Tablets & Smaller Laptops */
+@media (max-width: 768px) {
+    body.services-page .services-hero { padding: 80px 0 60px; }
+    body.services-page .services-hero h1 { font-size: 36px; }
+    body.services-page .hero-stats { gap: 20px; flex-direction: column; align-items: center; }
+    body.services-page .stat-item { padding: 12px 16px; }
+    body.services-page .section-header { flex-direction: column; gap: 16px; }
+    body.services-page .section-text .section-title { font-size: 28px; }
+    body.services-page .modern-grid { grid-template-columns: 1fr; }
+    body.services-page .brands-category { padding: 24px; }
+    body.services-page .brands-category h3 { font-size: 18px; }
+    body.services-page .modern-brand-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; }
+    body.services-page .brand-image-wrapper { height: 60px; }
+    body.services-page .brands-cta { padding: 30px 20px; }
+    body.services-page .cta-content h3 { font-size: 22px; }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    body.services-page .services-hero h1 { font-size: 28px; }
+    body.services-page .services-hero p { font-size: 16px; }
+    body.services-page .hero-stats { gap: 15px; }
+    body.services-page .stat-item { padding: 10px 14px; flex-direction: column; text-align: center; }
+    body.services-page .stat-item i { font-size: 24px; }
+    body.services-page .section-icon { width: 60px; height: 60px; }
+    body.services-page .section-icon i { font-size: 28px; }
+    body.services-page .section-text .section-title { font-size: 24px; }
+    
+    /* Card Tweaks for Mobile */
+    body.services-page .card-image { height: 170px; }
+    body.services-page .card-content { padding: 20px; }
+    
+    body.services-page .modern-brand-grid { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); }
+}

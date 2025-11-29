@@ -1,0 +1,74 @@
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h2 id="formTitle">Login</h2>
+
+        <form id="loginForm" class="auth-form">
+            <label>Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+            <label>Password
+                <input type="password" id="login_password" name="password" placeholder="********" required>
+            </label>
+            
+            <label class="pw-toggle-row">
+                <input type="checkbox" id="toggleLoginPw"><span>Show Password</span>
+            </label>
+
+            <button type="submit" class="auth-btn auth-btn-primary">Login</button>
+            <p class="auth-meta auth-meta-compact">
+                <a href="#" id="showForgot" class="auth-link">Forgot Password?</a>
+            </p>
+            <p class="auth-meta">
+                No account?
+                <a href="#" id="showSignup" class="auth-link">Sign up</a>
+            </p>
+        </form>
+
+        <form id="signupForm" class="auth-form" style="display:none;" action="php/auth/register.php" method="POST">
+            <label>Full Name
+                <input type="text" name="name" placeholder="Enter your full name" required>
+            </label>
+            <label>Phone Number
+                <input type="tel" name="phone" placeholder="012-345 6789" required>
+            </label>
+            <label>Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+            <label>Password
+                <input type="password" id="password" name="password" placeholder="********" required minlength="8">
+            </label>
+            <label>Confirm Password
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="********" required minlength="8">
+            </label>
+            
+            <label class="pw-toggle-row">
+                <input type="checkbox" id="togglePw"><span>Show Password</span>
+            </label>
+            
+            <label>Preferred Contact Method
+                <select name="preferred_contact" id="preferred_contact" required>
+                    <option value="Email" selected>Email</option>
+                    <option value="Phone">Phone</option>
+                </select>
+            </label>
+            <button type="submit" class="auth-btn auth-btn-primary">Sign Up</button>
+
+            <p class="auth-meta">
+                Already have an account?
+                <a href="#" id="showLogin" class="auth-link">Login</a>
+            </p>
+        </form>
+
+        <form id="forgotForm" class="auth-form" style="display:none;">
+            <p class="form-subtext">Enter your account email. If it exists, a password reset link will be sent.</p>
+            <label>Email
+                <input type="email" name="email" placeholder="you@example.com" required>
+            </label>
+            <button type="submit" class="auth-btn auth-btn-primary">Send Reset Link</button>
+            <p class="auth-meta">
+                <a href="#" id="showLoginFromForgot" class="auth-link">Back to Login</a>
+            </p>
+        </form>
+    </div>
+</div>

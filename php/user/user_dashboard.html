@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard • QB Auto Service Centre</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="user_dashboard.css">
+</head>
+<body class="profile-page">
+  <input type="hidden" id="serverActiveTab" value="appointments">
+  <div id="headerContainer"></div>
+  <div id="top"></div>
+
+  <section class="profile-hero">
+    <div class="container">
+      <div class="profile-title">
+        <i class='bx bxs-dashboard'></i>
+        <h1>Your Dashboard</h1>
+      </div>
+      <p class="profile-subtitle">Welcome back, Jane Doe. Manage your profile, view appointments, and keep your account up to date.</p>
+    </div>
+  </section>
+
+  <main class="profile-grid">
+    <div class="container">
+      <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-avatar">
+              <img src="../../images/customers/customer-1.jpg" alt="Profile photo" />
+            </div>
+            <div>
+              <p class="sidebar-name">Jane Doe</p>
+              <p class="sidebar-email">jane.doe@example.com</p>
+              <p class="sidebar-meta">Member since January 2023</p>
+            </div>
+          </div>
+          <nav class="sidebar-nav">
+            <p class="sidebar-label">Dashboard</p>
+            <button type="button" class="sidebar-link active" data-tab-link="appointments">
+              <i class='bx bx-calendar'></i>
+              <span>Appointments</span>
+            </button>
+            <button type="button" class="sidebar-link" data-tab-link="vehicles">
+              <i class='bx bx-car'></i>
+              <span>My Vehicles</span>
+            </button>
+            <button type="button" class="sidebar-link" data-tab-link="profile">
+              <i class='bx bx-user'></i>
+              <span>Profile Settings</span>
+            </button>
+            <p class="sidebar-label">Shortcuts</p>
+            <a class="sidebar-link" href="../../website/appointment/appointment.html">
+              <i class='bx bx-calendar-plus'></i>
+              <span>Book Service</span>
+            </a>
+            <a class="sidebar-link" href="../../website/services/services.html">
+              <i class='bx bx-cog'></i>
+              <span>Browse Services</span>
+            </a>
+          </nav>
+        </aside>
+
+        <section class="dashboard-main">
+          <div class="tab-switcher">
+            <button type="button" class="tab-button active" data-tab-link="appointments">Appointments</button>
+            <button type="button" class="tab-button" data-tab-link="vehicles">My Vehicles</button>
+            <button type="button" class="tab-button" data-tab-link="profile">Profile Settings</button>
+          </div>
+
+          <div class="tab-panels">
+            <section class="tab-panel active" id="tab-appointments" data-tab-panel="appointments">
+              <div class="card grid-span-full">
+                <div class="card-header">
+                  <div>
+                    <h3>Upcoming Appointments</h3>
+                    <p class="mb-0 small">Need to change plans? Click <strong>Reschedule</strong> on any booking.</p>
+                  </div>
+                  <div class="section-actions">
+                    <a class="btn btn-outline btn-sm" href="../../website/appointment/appointment.html">New Booking</a>
+                  </div>
+                </div>
+                <div class="list">
+                  <div class="list-item d-flex justify-content-between align-items-start p-3 border-bottom">
+                    <div class="info flex-grow-1 me-3">
+                      <div class="d-flex align-items-center mb-2">
+                        <div class="title d-flex gap-2 align-items-center">
+                          <strong class="fs-5">Jan 18, 2026</strong>
+                          <span class="text-muted small text-uppercase fw-bold">at</span>
+                          <strong class="fs-5">10:30 AM</strong>
+                        </div>
+                        <div class="vr mx-3 opacity-25 text-white" style="height: 1.2em;"></div>
+                        <div class="text-white-50 font-monospace small" title="Booking ID">#1042</div>
+                      </div>
+                      <div class="mb-3">
+                        <strong class="text-white fs-5">Honda Civic</strong>
+                        <span class="ms-2 font-monospace badge bg-dark border border-secondary text-light">WQB 1234</span>
+                      </div>
+                      <div class="mb-3">
+                        <div class="small text-uppercase fw-bold mb-1" style="color: #94a3b8; font-size: 0.7rem; letter-spacing: 0.5px;">Requested Services:</div>
+                        <div class="d-flex flex-wrap gap-2">
+                          <span class="badge" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #e2e8f0; font-weight: 400; padding: 6px 10px;">Engine Oil &amp; Filter Change</span>
+                          <span class="badge" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #e2e8f0; font-weight: 400; padding: 6px 10px;">Brake Pad Replacement</span>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <div class="small text-uppercase fw-bold mb-1" style="color: #94a3b8; font-size: 0.7rem; letter-spacing: 0.5px;">Your Note:</div>
+                        <div class="p-2 rounded d-flex align-items-start" style="background: rgba(255,255,255,0.03); border-left: 3px solid #64748b;">
+                          <i class='bx bxs-note me-2 mt-1 text-secondary'></i>
+                          <em class="text-white-50 small">"Please check the squeaking sound when braking."</em>
+                        </div>
+                      </div>
+                      <div class="mt-3 p-3 rounded" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <small class="text-uppercase text-warning fw-bold"><i class='bx bx-loader-alt bx-spin me-1'></i> Workshop Status</small>
+                          <span class="text-white small">Inspection (Diagnosing)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-column align-items-end gap-2 actions-col flex-shrink-0">
+                      <span class="badge bg-info text-dark rounded-pill px-3 py-2 text-uppercase">In Progress</span>
+                      <div class="mt-2 d-flex gap-2 justify-content-end align-items-center">
+                        <button type="button" class="btn btn-sm btn-outline btn-action" title="Edit or Reschedule" data-bs-toggle="modal" data-bs-target="#editApptModal" data-id="1042" data-date="2026-01-18" data-time="10:30 AM" data-notes="Please check the squeaking sound when braking." data-services="Engine Oil & Filter Change||Brake Pad Replacement">
+                          <i class='bx bx-edit-alt'></i>
+                          <span class="d-none d-sm-inline ms-1">Reschedule</span>
+                        </button>
+                        <form method="POST" class="cancel-form m-0" action="user_dashboard.php">
+                          <input type="hidden" name="action" value="cancel_appointment">
+                          <input type="hidden" name="appointment_id" value="1042">
+                          <input type="hidden" name="cancel_reason" value="">
+                          <button type="submit" class="btn btn-sm btn-outline-danger btn-action" title="Cancel Booking">
+                            <i class='bx bx-trash'></i>
+                            <span class="d-none d-sm-inline ms-1">Cancel</span>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="list-item">
+                    <div class="info">
+                      <div class="title">No other upcoming appointments</div>
+                      <div class="sub">Schedule a service to see it here.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="tab-panel" id="tab-vehicles" data-tab-panel="vehicles">
+              <div class="card" id="vehicle-management">
+                <div class="card-header">
+                  <div>
+                    <h3>Your Vehicles</h3>
+                    <p class="mb-0 small">You can store up to 5 license plates.</p>
+                  </div>
+                  <div class="section-actions">
+                    <button type="button" class="btn btn-outline btn-sm" data-panel-toggle="add-vehicle-panel" data-label-open="Add Vehicle" data-label-close="Hide Form" aria-expanded="false">Add Vehicle</button>
+                  </div>
+                </div>
+                <div class="panel-collapsible" id="add-vehicle-panel">
+                  <form method="POST" class="row g-3" action="user_dashboard.php">
+                    <input type="hidden" name="action" value="add_vehicle">
+                    <div class="col-md-6">
+                      <label class="form-label" for="new_plate">License Plate *</label>
+                      <input type="text" id="new_plate" name="license_plate_number" class="form-control" maxlength="20" required placeholder="e.g., WQB 1234">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="new_model">Vehicle Model</label>
+                      <input type="text" id="new_model" name="vehicle_model" class="form-control" maxlength="100" placeholder="e.g., Honda Civic">
+                    </div>
+                    <div class="col-12 form-actions">
+                      <button class="btn btn-main btn-sm" type="submit">Save Vehicle</button>
+                      <button class="btn btn-outline" type="button" data-panel-cancel="add-vehicle-panel">Cancel</button>
+                    </div>
+                  </form>
+                </div>
+
+                <div class="vehicle-list mt-3">
+                  <div class="vehicle-item" id="vehicle-row-11">
+                    <div class="vehicle-summary">
+                      <div>
+                        <div class="title">WQB 1234</div>
+                        <div class="sub">Honda Civic</div>
+                      </div>
+                      <div class="vehicle-actions">
+                        <button type="button" class="btn btn-outline btn-sm" data-vehicle-toggle="vehicle-row-11">Edit</button>
+                        <form method="POST" action="user_dashboard.php" onsubmit="return confirm('Delete this vehicle?');">
+                          <input type="hidden" name="action" value="delete_vehicle">
+                          <input type="hidden" name="vehicle_id" value="11">
+                          <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                    <form method="POST" class="vehicle-edit-form" action="user_dashboard.php">
+                      <input type="hidden" name="action" value="update_vehicle">
+                      <input type="hidden" name="vehicle_id" value="11">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">License Plate *</label>
+                          <input type="text" name="license_plate_number" class="form-control" value="WQB 1234" maxlength="20" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Vehicle Model</label>
+                          <input type="text" name="vehicle_model" class="form-control" value="Honda Civic" maxlength="100">
+                        </div>
+                        <div class="col-12 form-actions">
+                          <button class="btn btn-main btn-sm" type="submit">Save</button>
+                          <button class="btn btn-outline" type="button" data-vehicle-cancel>Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div class="vehicle-item" id="vehicle-row-12">
+                    <div class="vehicle-summary">
+                      <div>
+                        <div class="title">VBG 9087</div>
+                        <div class="sub">Toyota Vios</div>
+                      </div>
+                      <div class="vehicle-actions">
+                        <button type="button" class="btn btn-outline btn-sm" data-vehicle-toggle="vehicle-row-12">Edit</button>
+                        <form method="POST" action="user_dashboard.php" onsubmit="return confirm('Delete this vehicle?');">
+                          <input type="hidden" name="action" value="delete_vehicle">
+                          <input type="hidden" name="vehicle_id" value="12">
+                          <button class="btn btn-outline-danger btn-sm" type="submit">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                    <form method="POST" class="vehicle-edit-form" action="user_dashboard.php">
+                      <input type="hidden" name="action" value="update_vehicle">
+                      <input type="hidden" name="vehicle_id" value="12">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label">License Plate *</label>
+                          <input type="text" name="license_plate_number" class="form-control" value="VBG 9087" maxlength="20" required>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Vehicle Model</label>
+                          <input type="text" name="vehicle_model" class="form-control" value="Toyota Vios" maxlength="100">
+                        </div>
+                        <div class="col-12 form-actions">
+                          <button class="btn btn-main btn-sm" type="submit">Save</button>
+                          <button class="btn btn-outline" type="button" data-vehicle-cancel>Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="tab-panel" id="tab-profile" data-tab-panel="profile">
+              <div class="card" id="contact-details-card">
+                <div class="card-header">
+                  <div>
+                    <h3>Contact Details</h3>
+                    <p class="mb-0 small">Keep your contact information current for booking reminders.</p>
+                  </div>
+                  <div class="section-actions">
+                    <button type="button" class="btn btn-outline btn-sm" id="editContactBtn">Edit</button>
+                  </div>
+                </div>
+                <form method="POST" class="card-body-form" id="contactDetailsForm" action="user_dashboard.php">
+                  <input type="hidden" name="action" value="update_profile">
+                  <fieldset class="row g-3" id="contactFormFields" disabled>
+                    <div class="col-md-6">
+                      <label class="form-label" for="full_name">Full Name *</label>
+                      <input type="text" id="full_name" name="full_name" class="form-control" value="Jane Doe" required maxlength="255">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="email">Email *</label>
+                      <input type="email" id="email" name="email" class="form-control" value="jane.doe@example.com" required maxlength="255">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="phone">Phone *</label>
+                      <input type="text" id="phone" name="phone" class="form-control" value="0192106661" required maxlength="20" placeholder="e.g., 0192106661">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="preferred_contact">Preferred Contact *</label>
+                      <select id="preferred_contact" name="preferred_contact" class="form-select" required>
+                        <option value="Email" selected>Email</option>
+                        <option value="Phone">Phone</option>
+                      </select>
+                    </div>
+                  </fieldset>
+                  <div class="form-actions mt-4 contact-actions hidden" id="contactFormActions">
+                    <button class="btn btn-main" type="submit">Save Changes</button>
+                    <button class="btn btn-outline" type="button" id="cancelContactBtn">Cancel</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3>Profile Picture</h3>
+                    <p class="mb-0 small">Optional. Supports JPG, PNG, or WEBP up to 2MB.</p>
+                  </div>
+                </div>
+                <div class="profile-photo-wrapper">
+                  <div class="profile-photo-preview" id="photoPreview">
+                    <img src="../../images/customers/customer-1.jpg" alt="Current profile photo" id="currentPhoto">
+                  </div>
+                  <div class="photo-input-controls">
+                    <form method="POST" enctype="multipart/form-data" class="photo-form" id="uploadPhotoForm" action="user_dashboard.php">
+                      <input type="hidden" name="action" value="upload_photo">
+                      <div class="file-chooser">
+                        <label class="btn choose-file-btn" for="profile_photo_input">CHOOSE FILE</label>
+                        <span id="chosenFileName" class="file-name">No file chosen</span>
+                        <input type="file" id="profile_photo_input" name="profile_photo" accept="image/jpeg,image/png,image/webp" class="visually-hidden" />
+                      </div>
+                      <div class="form-actions">
+                        <button class="btn btn-main" type="submit" id="uploadPhotoBtn" disabled>UPLOAD PHOTO</button>
+                      </div>
+                    </form>
+                    <form method="POST" action="user_dashboard.php" onsubmit="return confirm('Remove your profile photo?');" class="remove-photo-form">
+                      <input type="hidden" name="action" value="delete_photo">
+                      <button class="btn btn-outline remove-photo-btn" type="submit">REMOVE PHOTO</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card grid-span-full" id="account-security">
+                <div class="card-header">
+                  <div>
+                    <h3>Account Security</h3>
+                    <p class="mb-0 small">Update your password regularly to protect your account.</p>
+                  </div>
+                </div>
+                <form method="POST" class="card-body-form" action="user_dashboard.php">
+                  <input type="hidden" name="action" value="update_password">
+                  <div class="row g-3 align-items-start">
+                    <div class="col-md-4 col-sm-12">
+                      <label class="form-label" for="current_password">Current Password *</label>
+                      <div class="position-relative">
+                        <input type="password" id="current_password" name="current_password" class="form-control pe-5" required>
+                        <i class='bx bx-show password-toggle' data-target="current_password"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <label class="form-label" for="new_password">New Password *</label>
+                      <div class="position-relative">
+                        <input type="password" id="new_password" name="new_password" class="form-control pe-5" required minlength="8">
+                        <i class='bx bx-show password-toggle' data-target="new_password"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <label class="form-label" for="confirm_password">Confirm Password *</label>
+                      <div class="position-relative">
+                        <input type="password" id="confirm_password" name="confirm_password" class="form-control pe-5" required minlength="8">
+                        <i class='bx bx-show password-toggle' data-target="confirm_password"></i>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-actions mt-2 justify-content-end">
+                        <button class="btn btn-main w-auto" type="submit">Update Password</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <div class="card grid-span-full" id="account-actions">
+                <div class="card-header">
+                  <div>
+                    <h3>Delete Account</h3>
+                    <p class="mb-0 small text-danger">Deleting your account removes all vehicles and booking history.</p>
+                  </div>
+                </div>
+                <form method="POST" class="card-body-form" action="user_dashboard.php" onsubmit="return confirm('This will permanently remove your account. Continue?');">
+                  <input type="hidden" name="action" value="delete_account">
+                  <div class="row g-3 align-items-end">
+                    <div class="col-md-7 col-lg-7">
+                      <label class="form-label" for="delete_confirm">Type DELETE to confirm *</label>
+                      <input type="text" id="delete_confirm" name="delete_confirm" class="form-control" placeholder="DELETE" required>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                      <div class="form-actions mt-0">
+                        <button class="btn btn-danger w-100" type="submit">Delete / Deactivate Account</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal fade" id="editApptModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <form method="POST" class="modal-content" action="user_dashboard.php">
+        <input type="hidden" name="action" value="edit_appointment">
+        <input type="hidden" name="appointment_id" id="editApptId">
+        <div class="modal-header">
+          <h5 class="modal-title">Manage Appointment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="editDate">Date</label>
+              <input type="date" name="date" id="editDate" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="editTime">Time</label>
+              <select name="time" id="editTime" class="form-select" required>
+                <option>09:00 AM</option><option>09:30 AM</option>
+                <option>10:00 AM</option><option>10:30 AM</option>
+                <option>11:00 AM</option><option>11:30 AM</option>
+                <option>12:00 PM</option><option>12:30 PM</option>
+                <option>01:00 PM</option><option>01:30 PM</option>
+                <option>02:00 PM</option><option>02:30 PM</option>
+                <option>03:00 PM</option><option>03:30 PM</option>
+                <option>04:00 PM</option><option>04:30 PM</option>
+                <option>05:00 PM</option><option>05:30 PM</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label mb-0">Services</label>
+                <button type="button" class="btn btn-sm btn-outline" id="modalAddServiceBtn"> + Add Service</button>
+              </div>
+              <div id="modalServiceContainer" class="d-flex flex-column gap-2"></div>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="editNotes">Notes</label>
+              <textarea name="notes" id="editNotes" class="form-control" rows="2"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-main">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="authContainer"></div>
+  <div id="footerContainer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../website/header&footer/header.js"></script>
+  <script src="../../website/header&footer/footer.js"></script>
+  <script src="../auth/auth.js"></script>
+  <script src="user_dashboard.js"></script>
+</body>
+</html>
